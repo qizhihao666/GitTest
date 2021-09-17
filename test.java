@@ -106,7 +106,6 @@ public class BillDbHelper {
         return billInfo;
     }
 
-bbbbbbb;
     /**
      * 查询磅单AI信息，并放入材料中
      *
@@ -143,5 +142,15 @@ bbbbbbb;
         }
     }
 
-   
+    public BillInfoObsolete queryBillByGuid(String guid) {
+
+        String tablePref = InspectionConstants.getTablePref(false, BillTypeEnum.RECEIVE.getBillType());
+        BillInfoObsolete obsolete= billDbMapper.queryBillByGuid(guid,tablePref);
+        if (Objects.nonNull(obsolete)){
+            return obsolete;
+        }
+        tablePref = InspectionConstants.getTablePref(false, BillTypeEnum.PAYOUT.getBillType());
+        obsolete= billDbMapper.queryBillByGuid(guid,tablePref);
+        return obsolete;
+    }
 }
