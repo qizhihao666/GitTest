@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 public class BillDbHelper {
     @Autowired
     private BillDbMapper billDbMapper;
-	aaaa；
+    aaaa；
     /**
      * 磅单引用关系
      */
@@ -145,12 +145,12 @@ public class BillDbHelper {
     public BillInfoObsolete queryBillByGuid(String guid) {
 
         String tablePref = InspectionConstants.getTablePref(false, BillTypeEnum.RECEIVE.getBillType());
-        BillInfoObsolete obsolete= billDbMapper.queryBillByGuid(guid,tablePref);
-        if (Objects.nonNull(obsolete)){
+        BillInfoObsolete obsolete = billDbMapper.queryBillByGuid(guid, tablePref);
+        if (Objects.nonNull(obsolete)) {
             return obsolete;
         }
         tablePref = InspectionConstants.getTablePref(false, BillTypeEnum.PAYOUT.getBillType());
-        obsolete= billDbMapper.queryBillByGuid(guid,tablePref);
+        obsolete = billDbMapper.queryBillByGuid(guid, tablePref);
         return obsolete;
     }
 }
